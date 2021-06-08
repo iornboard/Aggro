@@ -9,4 +9,5 @@ __pycache__/
 
 
 ### API code ###
-scr/ect/dummy33.py
+scr/ect/*
+scr/data/*
