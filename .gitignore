@@ -2,6 +2,6 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
 
-/scr/ect/dummy
-/scr/data/dummy
+/scr/ect/
+/scr/data/
 
