@@ -1,8 +1,13 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+
 ### API code ###
-*/scr/data/dummy.txt
-*/scr/ect/dummy.txt
-*/scr/ect/dummy.py
-*/scr/ect/dummy2.py
+*dummy.txt
+*dummy22.py
