@@ -1,8 +1,9 @@
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from oauth2client.tools import argparser
+import keys
 
-DEVELOPER_KEY = "AIzaSyCLthWw85qLROlKp54eIpUGqZI3l-58gPI"
+DEVELOPER_KEY = keys.DEVELOPER_KEY1
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
