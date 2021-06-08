@@ -10,4 +10,4 @@ __pycache__/
 
 ### API code ###
 scr/ect/keys.py
-scr/data/*
+scr/data/data*
