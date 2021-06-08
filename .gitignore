@@ -2,6 +2,6 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
 ### API code ###
-/scr/data/dummy.txt
-/scr/ect/dummy.txt
-/scr/ect/dummy.py
+*/scr/data/dummy.txt
+*/scr/ect/dummy.txt
+*/scr/ect/dummy.py
