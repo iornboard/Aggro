@@ -4,7 +4,7 @@ import datetime
 
 #---------------------------------------------------------
 today = datetime.datetime.today().date()
-rootSearchNum = 0 # 최대로 받을 수 있는 데이터 수 -> 아마 40예상함  (40*10= 400) -> 1번당 20정도의 비용 [30-> 3500P,]
+rootSearchNum = 60 # 최대로 받을 수 있는 데이터 수 -> 아마 40예상함  (40*10= 400) -> 1번당 20정도의 비용 [30-> 3500P,]
 mainKeyword = "가이코"
 mainCatagory = "20"
 saveFileName = "data %s_%s_%s.csv" % (mainKeyword, str(rootSearchNum*10), str(today))

@@ -7,4 +7,4 @@ savePath = "../data/"
 #---------------------------------------------------------
 
 csv = pd.read_csv(savePath+fileName+".csv")
-print(csv)
+print(csv['title'])
