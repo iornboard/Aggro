@@ -3,7 +3,7 @@ from googleapiclient.errors import HttpError
 from oauth2client.tools import argparser
 import keys
 
-DEVELOPER_KEY = keys.DEVELOPER_KEY1
+DEVELOPER_KEY = keys.DEVELOPER_KEY4
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
@@ -108,13 +108,13 @@ def youtube_get_video_info(videoId):
             channelId = "NA",
             )
 
+
 # 비디오 아이디를 통해 채널의 구독자 수를 받아오는 함수
 def youtube_get_chennel_info(channelId):
     search_response = youtube.channels().list(
         part= ["statistics"],
         id=channelId,
     ).execute()
-
 
     try:
         search_result = search_response['items'][0]

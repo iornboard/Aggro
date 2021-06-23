@@ -12,12 +12,12 @@ savePath = "../data/"
 #encondingForm = 'utf-16be'
 #---------------------------------------------------------
 
-rootStream = Yre.youtube_search_keyword_to_id(mainKeyword,rootSearchNum,mainCatagory)
+rootStream = Yre.youtube_search_keyword_to_id(mainKeyword,rootSearchNum,mainCatagory)  # 70개의 영상 ID
 
 allStream = []
 
 for rootId in rootStream:
-    allStream.append( Yre.youtube_search_id_to_related(rootId,9,mainCatagory))
+    allStream.append( Yre.youtube_search_id_to_related(rootId,9,mainCatagory)) # 70개의 영상 ID -> 1 개의 영상과 + 연관있는 영상 9개
 
 data = []
 
@@ -25,7 +25,6 @@ for i, videoIdList in enumerate(allStream, start=1):
     print("working....  %s / %s " % (i ,len(allStream) ))
     for videoId in videoIdList:
         data.append( Yre.youtube_get_video_info(videoId))
-
 
 df = pd.DataFrame(data)
 
