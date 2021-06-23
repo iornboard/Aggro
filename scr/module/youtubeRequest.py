@@ -82,7 +82,7 @@ def youtube_search_id_to_related(videoId,dataNums,categoryId): # 비디오 아�
 # 비디오 아이디의 대한 파일 정보를 리스트로 받아오는 정보
 def youtube_get_video_info(videoId):
     search_response = youtube.videos().list(
-        part= ["snippet" , "statistics" ],
+        part= ["snippet" , "statistics"],
         id=videoId,
     ).execute()
 
@@ -108,6 +108,17 @@ def youtube_get_video_info(videoId):
             channelId = "NA",
             )
 
-#print(youtube_search_keyword_to_id("도둑", 30,"20") )  # 카타고리 20 == 게임
-#print(youtube_search_id_to_related('KJkX9zCzRr4',9,"20") )
-#print(youtube_get_video_info("KJkX9zCzRr4"))
+# 비디오 아이디를 통해 채널의 구독자 수를 받아오는 함수
+def youtube_get_chennel_info(channelId):
+    search_response = youtube.channels().list(
+        part= ["statistics"],
+        id=channelId,
+    ).execute()
+
+
+    try:
+        search_result = search_response['items'][0]
+        return search_result["statistics"]["subscriberCount"]
+
+    except:
+        return "NA"
