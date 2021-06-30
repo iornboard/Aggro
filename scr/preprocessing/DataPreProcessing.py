@@ -14,8 +14,6 @@ titleInfo = pd.read_csv(savePath+fileName+".csv")
 
 noticedTileInfo = []
 
-
-
 for x in range(0,len(titleInfo),10):
     videoGroup = titleInfo.loc[x:x + 10]
     viewMeans = videoGroup.mean()

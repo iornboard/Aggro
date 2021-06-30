@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 import pandas as pd
 import random
-import math
 
 #---------------------------------------------------------
 fileName = "2convertTodata 코로나_700_2021-06-23"
@@ -52,7 +51,7 @@ MostTenSentencePattons = sentencePattons[:20]
 noticedPos = pd.DataFrame(posList).sort_values(by=SortBy, ascending=False)
 noticedMean = noticedPos["noticeds"].mean()
 
-# noticedPos = noticedPos[noticedPos["noticeds"] < noticedMean]  #--------------------- 변칙성 있음
+noticedPos = noticedPos[noticedPos["noticeds"] > noticedMean]
 
 
 # ------------------------------표현1 : 단순 비교 -----------------------------------------------------------------
@@ -62,34 +61,33 @@ noticedMean = noticedPos["noticeds"].mean()
 
 #------------------------------------- 표현2 : 문장 만들기 --------------------------------------------------------#
 
-for sentenceItem in MostTenSentencePattons:
-    makedSentence = []
-    for item in sentenceItem.split(' '):
-        notic = noticedPos[noticedPos['pos'] == item]
-        randomIdx = random.randint(0,notic.shape[0])
-        try:
-            makedSentence.append(notic.iloc[randomIdx]['text'])
-        except:
-            makedSentence.append(" ")
-
-    print(" ".join(makedSentence))
-
+# for sentenceItem in MostTenSentencePattons:
+#     makedSentence = []
+#     for item in sentenceItem.split(' '):
+#         notic = noticedPos[noticedPos['pos'] == item]
+#         randomIdx = random.randint(0,notic.shape[0])
+#         try:
+#             makedSentence.append(notic.iloc[randomIdx]['text'])
+#         except:
+#             makedSentence.append(" ")
+#
+#     print(" ".join(makedSentence))
 
 
 #------------------------------------------ 표현 3 : 단어 워드 클라우드---------------------------------------------------#
 
-# noticedPos = noticedPos[noticedPos['pos'] == 'Noun']
-#
-# count = Counter(noticedPos['text'])
-# remove_nouns = Counter({ x: count[x] for x in count if len(x)>1 })
-#
-# rank = remove_nouns.most_common(40)
-#
-# wordcloud = WordCloud(font_path=fontpath, relative_scaling=0.2, background_color='white').generate_from_frequencies(dict(rank))
-#
-# plt.figure(figsize=(12,8))
-# plt.imshow(wordcloud)
-# plt.show()
+noticedPos = noticedPos[noticedPos['pos'] == 'Noun']
+
+count = Counter(noticedPos['text'])
+remove_nouns = Counter({ x: count[x] for x in count if len(x)>1 })
+
+rank = remove_nouns.most_common(40)
+
+wordcloud = WordCloud(font_path=fontpath, relative_scaling=0.2, background_color='white').generate_from_frequencies(dict(rank))
+
+plt.figure(figsize=(12,8))
+plt.imshow(wordcloud)
+plt.show()
 
 #---------------------------------------------------------------------------------------------#
 
